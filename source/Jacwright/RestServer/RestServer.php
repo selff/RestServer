@@ -578,11 +578,11 @@ class RestServer {
 
 	private $codes = array(
 		'100' => 'Continue',
-		'200' => 'OK',
+		'200' => 'OK',// for when everything is okay.
 		'201' => 'Created',
 		'202' => 'Accepted',
 		'203' => 'Non-Authoritative Information',
-		'204' => 'No Content',
+		'204' => 'No Content',//for when everything is okay, but there’s no content to return.
 		'205' => 'Reset Content',
 		'206' => 'Partial Content',
 		'300' => 'Multiple Choices',
@@ -592,14 +592,14 @@ class RestServer {
 		'304' => 'Not Modified',
 		'305' => 'Use Proxy',
 		'307' => 'Temporary Redirect',
-		'400' => 'Bad Request',
-		'401' => 'Unauthorized',
+		'400' => 'Bad Request', //for when the requested information is incomplete or malformed.
+		'401' => 'Unauthorized', //for when an access token isn’t provided, or is invalid.
 		'402' => 'Payment Required',
-		'403' => 'Forbidden',
-		'404' => 'Not Found',
+		'403' => 'Forbidden',//for when an access token is valid, but requires more privileges.
+		'404' => 'Not Found',//for when everything is okay, but the resource doesn’t exist.
 		'405' => 'Method Not Allowed',
 		'406' => 'Not Acceptable',
-		'409' => 'Conflict',
+		'409' => 'Conflict',//for when a conflict of data exists, even with valid information.
 		'410' => 'Gone',
 		'411' => 'Length Required',
 		'412' => 'Precondition Failed',
@@ -608,6 +608,8 @@ class RestServer {
 		'415' => 'Unsupported Media Type',
 		'416' => 'Requested Range Not Satisfiable',
 		'417' => 'Expectation Failed',
+		'422' => 'Information is invalid',// for when the requested information is okay, but invalid.
+		'500' => 'Internal Server Error',// for when the server throws an error, completely unexpected.
 		'500' => 'Internal Server Error',
 		'501' => 'Not Implemented',
 		'503' => 'Service Unavailable'
